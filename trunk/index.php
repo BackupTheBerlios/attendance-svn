@@ -16,11 +16,12 @@
 ?>
 <HTML>
 <HEAD>
-<TITLE>CSECDept - Attendance</TITLE>
+<TITLE>cnu/Attendance</TITLE>
 </HEAD>
 <BODY>
-<H1>CSECDept - Attendance</H1>
-This project is intended to maintain an unofficial attendance record of all the students of CSECDept. The students can view their attendance percentage, without having to wait for that to be put up in the notice board. The database will be updated daily. Note that the percentage we calculate here may not be equal to the official one. <BR>
+<H1>cnu/Attendance</H1>
+This project is used to maintain the attendance record of collge students. The students can view their attendance percentage online by entering their register number.
+<BR>
 <CENTER>
 <FORM ACTION="atten.php" METHOD="GET">
 Your name:
@@ -43,7 +44,7 @@ print("</SELECT>");
 <INPUT TYPE=SUBMIT>
 </FORM>
 </CENTER>
-<BR>
+<HR>
 Also please mail your comments, improvements or bugs to <A HREF="mailto:srinivasarnr@gmail.com"> srinivasanr@gmail.com</A>.
 <BR>
 </BODY>

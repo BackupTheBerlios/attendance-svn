@@ -1,37 +1,37 @@
-<?xml version = '1.0'?>
+<?xml version="1.0"?>
 <kdevelop>
+ <general>
+  <author>Srinivasan</author>
+  <email>srinivasanr@gmail.com</email>
+  <version>$VERSION$</version>
+  <projectmanagement>KDevScriptProject</projectmanagement>
+  <primarylanguage>PHP</primarylanguage>
+  <ignoreparts>
+   <part>KDevDoxygen</part>
+   <part>KDevdistpart</part>
+  </ignoreparts>
+ </general>
+ <kdevscriptproject>
   <general>
-    <author>Srinivasan</author>
-    <email>srinivasanr@gmail.com</email>
-    <version>0.1</version>
-    <projectmanagement>KDevScriptProject</projectmanagement>
-    <primarylanguage>PHP</primarylanguage>
-    <keywords>
-      <keyword>PHP</keyword>
-    </keywords>
-    <ignoreparts>
-      <part>KDevDoxygen</part>
-      <part>KDevdistpart</part>
-      <part>KDevVisualBoyAdvance</part>
-    </ignoreparts>
-    <projectdirectory>.</projectdirectory>
-    <absoluteprojectpath>false</absoluteprojectpath>
-    <description>cnu/Attendance
-=============
-cnu/Attendance is an attendance management software. This is mainly for colleges. Using this the attendance percentage of every student can be found. The details about every student must be input for every hour/period in a day.</description>
-    <secondaryLanguages/>
   </general>
-  <kdevscriptproject>
-    <general>
-      <activedir/>
-      <includepatterns>*.php,*.phps,*.php3,*.inc</includepatterns>
-      <excludepatterns>*~</excludepatterns>
-    </general>
-    <run>
-      <directoryradio>executable</directoryradio>
-    </run>
-  </kdevscriptproject>
-  <kdevdoctreeview>
+ </kdevscriptproject>
+ <kdevdoctreeview>
+  <ignoretocs>
+   <toc>gtk</toc>
+   <toc>kde</toc>
+   <toc>gnustep</toc>
+   <toc>python</toc>
+   <toc>perl</toc>
+  </ignoretocs>
+ </kdevdoctreeview>
+<kdevphpsupport>
+	<codeHelp>
+	   <codeCompletion>true</codeCompletion>
+	   <codeHinting>true</codeHinting>
+	   <realtimeParsing>false</realtimeParsing>
+	  </codeHelp>
+</kdevphpsupport>
+ <kdevdoctreeview>
     <ignoretocs>
       <toc>ada</toc>
       <toc>ada_bugs_gcc</toc>
@@ -75,47 +75,10 @@ cnu/Attendance is an attendance management software. This is mainly for colleges
     <ignoredoxygen>
       <toc>KDE Libraries (Doxygen)</toc>
     </ignoredoxygen>
-    <projectdoc>
-      <userdocDir>html/</userdocDir>
-      <apidocDir>html/</apidocDir>
-    </projectdoc>
-    <ignorekdocs/>
-    <ignoredevhelp/>
-  </kdevdoctreeview>
-  <kdevphpsupport>
-    <codeHelp>
-      <codeCompletion>true</codeCompletion>
-      <codeHinting>true</codeHinting>
-      <realtimeParsing>false</realtimeParsing>
-    </codeHelp>
-    <general>
-      <invocationMode>1</invocationMode>
-    </general>
-    <webInvocation>
-      <weburl>http://localhost/~cnu/attendance/</weburl>
-      <webFileMode>1</webFileMode>
-      <defaultFile/>
-    </webInvocation>
-    <shell>
-      <phpexe>/usr/local/bin/php</phpexe>
-    </shell>
-  </kdevphpsupport>
+ </kdevdoctreeview>
   <kdevfilecreate>
-    <filetypes/>
     <useglobaltypes>
-      <type ext="php" />
+      <type ext="php"/>
     </useglobaltypes>
   </kdevfilecreate>
-  <kdevfileview>
-    <groups>
-      <group pattern="*.php;*.phps;*.php3" name="PHP files" />
-      <group pattern="*.inc" name="Include files" />
-      <hidenonprojectfiles>false</hidenonprojectfiles>
-      <hidenonlocation>false</hidenonlocation>
-    </groups>
-    <tree>
-      <hidepatterns>*.o,*.lo,CVS</hidepatterns>
-      <hidenonprojectfiles>false</hidenonprojectfiles>
-    </tree>
-  </kdevfileview>
 </kdevelop>

@@ -56,7 +56,6 @@ $fields=mysql_num_fields($result);
 $i=0;
 while($row=mysql_fetch_row($result))
 {
-	
 	if($row[1]==0||$row[2]==0||$row[3]==0||$row[4]==0)//First session absent
 		for($j=1;$j<5;$j++)
 			$row[$j]=0;
@@ -79,7 +78,6 @@ while($row=mysql_fetch_row($result))
 	}
 	$percentage[$i]=$absent_count[$i]/($num_hour-1)*100;
 	$percentage[$i]=100-$percentage[$i];
-// 	print($percentage[$i] . "<BR>");
 	$i=$i+1;
 }
 
