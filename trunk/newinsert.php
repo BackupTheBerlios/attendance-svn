@@ -76,15 +76,15 @@ while($row=mysql_fetch_row($attendance_result))
 //Build input form
 print("<form action=\"insert.php\" method=\"post\">");//need to check action attr
 print("<table>\n");
-$row_color="eecccc";
+$row_color="#eecccc";
 $i=1;
 while($row=mysql_fetch_row($name_result))
 {
 	//Toggle row color
-	if($row_color=="eecccc")
-		$row_color="ccccee";
+	if($row_color=="#eecccc")
+		$row_color="#ccccee";
 	else
-		$row_color="eecccc";
+		$row_color="#eecccc";
 	//Print row for each student
 	print("<tr bgcolor=\"$row_color\">");
 	print("<td><input type=\"hidden\" name=\"stud_id[$i]\" value=\"$row[0]\" />\n");
@@ -143,15 +143,15 @@ $result=mysql_query($query);
 
 print("<form action=\"insert.php\" method=\"post\">");
 print("<table>\n");
-$row_color="eecccc";
+$row_color="#eecccc";
 $i=1;
 while($row=mysql_fetch_row($result))
 {
 	//Toggle row color
-	if($row_color=="eecccc")
-		$row_color="ccccee";
+	if($row_color=="#eecccc")
+		$row_color="#ccccee";
 	else
-		$row_color="eecccc";
+		$row_color="#eecccc";
 	//Print row for each student
 	print("<tr bgcolor=\"$row_color\">");
 	print("<td><input type=\"hidden\" name=\"stud_id[$i]\" value=\"$row[0]\" />\n");

@@ -52,7 +52,7 @@ $date=date('d');
 $month=date('m');
 $year=date('Y');
 $day=date('l');
-if(!$day=='Sunday')
+if($day!='Sunday')
 {	
 ?>
 <b>
