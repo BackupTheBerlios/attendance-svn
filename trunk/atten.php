@@ -96,10 +96,15 @@ $tomorrow_attendance=$total_attendance/($num_days+1);
 //Print the attendance percentage
 printf("Your attendance percentage is :<font size=\"14\">%3.2f</font><br />\n",$average_attendance);
 printf("If you are absent tomorrow, then you attendance percentage may drop to <font size =\"14\">%3.2f</font><br />\n",$tomorrow_attendance);
+$previous_no=$regno-1;
+$next_no=$regno+1;
+print("<center>");
+print("<a href=\"atten.php?regno=$previous_no\">Previous</a> | <a href=\"atten.php?regno=$next_no\">Next</a>");
+print("</center>");
 }
 else
 {
-print("INVALID REGISTER NUMBER. PLEASE PRESS BACK TO ENTER YOUR CORRECT REGISTER NUMBER");
+print("INVALID REGISTER NUMBER. PLEASE PRESS BACK TO CHOOSE YOUR CORRECT REGISTER NUMBER/NAME");
 }
 ?>
 <hr />

@@ -56,7 +56,7 @@ if($day!='Sunday')
 {	
 ?>
 <b>
-<a href="newinsert.php?<?php print("date=$date&month=$month&year=$year"); ?>"> Insert</a> today's attendance details.
+<a href="newinsert.php?<?php print("date=$date&month=$month&year=$year"); ?>"> Insert</a> today's (<?php print("$date-$month-$year"); ?>) attendance details.
 </b>
 <?php
 }
