@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 /*
   ===========================
@@ -26,14 +28,14 @@ mysql_select_db($database);
 if($mode=="edit")
 {//Edit the information already present in the database
 ?>
-<HTML>
-<HEAD>
-<TITLE>
+<head>
+<title>
 Updated the database for <?php print($date); ?>
-</TITLE>
-</HEAD>
-<BODY>
-<CENTER><H1>Updating Attendance details <?php print($date); ?></h1>
+</title>
+</head>
+<body>
+<center>
+<h1>Updating Attendance details <?php print($date); ?></h1>
 <?php 
 
 if($pass=='alohomora')
@@ -77,7 +79,7 @@ else
 {
 	
 	print('Sorry authentication failed. Are you authorised to insert the details??');
-	print('<BR>Press Back to try again');
+	print('<br />Press Back to try again');
 }
 ?>
 <?php
@@ -85,14 +87,13 @@ else
 else if($mode=="insert")
 {
 ?>
-<HTML>
-<HEAD>
-<TITLE>
+<head>
+<title>
 Inserted into the database for <?php print($date); ?>
-</TITLE>
-</HEAD>
-<BODY>
-<CENTER><H1>Inserting Attendance details <?php print($date); ?></h1>
+</title>
+</head>
+<body>
+<center><h1>Inserting Attendance details <?php print($date); ?></h1>
 <?php
 if($pass=='alohomora')
 {
@@ -137,14 +138,14 @@ if($pass=='alohomora')
 else
 {
 
-	print('Sorry authentication failed. Are you authorised to insert the details??');
-	print('<BR>Press Back to try again');
+	print('Sorry authentication failed. You forgot to tell the magic word!!');
+	print('<br />Press Back to try again');
 }
 }//End of else block(inserting)	
 ?>
 
 <!--Common to both-->
-<A HREF="admin.php">ADMIN</A>
-</CENTER>
-</BODY>
-</HTML>
+<a href="admin.php">admin</a>
+</center>
+</body>
+</html>

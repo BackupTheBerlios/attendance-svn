@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 /*
   ===========================
@@ -26,20 +28,19 @@ $result=mysql_query($query);
 $row=mysql_fetch_row($result);
 $name=$row[0];
 if(!isset($name))
-$valid=false;
+	$valid=false;
 else
-$valid=true;
+	$valid=true;
 ?>
-<HTML>
-<HEAD>
-<TITLE>Attendance details for <?php print($name); ?></TITLE>
-</HEAD>
-<BODY>
+<head>
+<title>Attendance details for <?php print($name); ?></title>
+</head>
+<body>
 
 <?php
 if($valid)
 {
-print("<CENTER><H1>Attendance details for $name </H1></CENTER>");
+print("<center><h1>Attendance details for $name </h1></center>");
 
 //Query needs to be checked and rewritten
 //$query="SELECT date,hour1,hour2,hour3,hour4,hour5,hour6,hour7,hour8 FROM attendance WHERE ";
@@ -54,6 +55,11 @@ $result=mysql_query($query);
 $fields=mysql_num_fields($result);
 
 $i=0;
+
+// Algorithm for calculating the perecntage
+// Currently if the student is absent for any hour during the first or second session
+// (4 hours), then the entire session is marked as absent.
+
 while($row=mysql_fetch_row($result))
 {
 	if($row[1]==0||$row[2]==0||$row[3]==0||$row[4]==0)//First session absent
@@ -88,15 +94,15 @@ for($i=0;$i<$num_days;$i++)
 $average_attendance=$total_attendance/$num_days;
 $tomorrow_attendance=$total_attendance/($num_days+1);
 //Print the attendance percentage
-printf("Your attendance percentage is :<FONT SIZE=14>%3.2f</FONT><BR>\n",$average_attendance);
-printf("If you are absent tomorrow, then you attendance percentage may drop to <FONT SIZE =14>%3.2f</FONT><BR>\n",$tomorrow_attendance);
+printf("Your attendance percentage is :<font size=\"14\">%3.2f</font><br />\n",$average_attendance);
+printf("If you are absent tomorrow, then you attendance percentage may drop to <font size =\"14\">%3.2f</font><br />\n",$tomorrow_attendance);
 }
 else
 {
 print("INVALID REGISTER NUMBER. PLEASE PRESS BACK TO ENTER YOUR CORRECT REGISTER NUMBER");
 }
 ?>
-<HR>
-Click here to go back to the <A HREF="index.php">main page</A>
-</BODY>
-</HTML>
+<hr />
+Click here to go back to the <a href="index.php">main page</a>
+</body>
+</html>

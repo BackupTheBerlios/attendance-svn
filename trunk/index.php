@@ -1,3 +1,6 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 /*
   ===========================
@@ -14,16 +17,15 @@
   ===========================
 */
 ?>
-<HTML>
-<HEAD>
-<TITLE>cnu/Attendance</TITLE>
-</HEAD>
-<BODY>
-<H1>cnu/Attendance</H1>
+<head>
+<title>cnu/Attendance</title>
+</head>
+<body>
+<h1>cnu/Attendance</h1>
 This project is used to maintain the attendance record of collge students. The students can view their attendance percentage online by entering their register number.
-<BR>
-<CENTER>
-<FORM ACTION="atten.php" METHOD="GET">
+<br />
+<center>
+<form action="atten.php" method="get">
 Your name:
 <?php
 include("db_vars.inc");
@@ -32,20 +34,20 @@ mysql_select_db($database);
 
 $query="SELECT stud_regno,stud_name FROM student";
 $result=mysql_query($query);
-print("<SELECT NAME=\"regno\">");
+print("<select name=\"regno\">");
 while($row=mysql_fetch_row($result))
 {
 // print("$row[0]<br>");
- 	print("<OPTION VALUE=\"$row[0]\">$row[1]\n");
+ 	print("<option value=\"$row[0]\">$row[1]</option>\n");
 }
-print("</SELECT>");
+print("</select>");
 ?>
 <!--<INPUT TYPE="TEXT" NAME="regno">-->
-<INPUT TYPE=SUBMIT>
-</FORM>
-</CENTER>
-<HR>
-Also please mail your comments, improvements or bugs to <A HREF="mailto:srinivasarnr@gmail.com"> srinivasanr@gmail.com</A>.
-<BR>
-</BODY>
-</HTML>
+<input type="submit" />
+</form>
+</center>
+<hr />
+Also please mail your comments, improvements or bugs to <a href="mailto:srinivasarnr@gmail.com"> srinivasanr@gmail.com</a>.
+<br />
+</body>
+</html>

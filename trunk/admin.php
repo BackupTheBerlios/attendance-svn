@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 /*
   ===========================
@@ -14,38 +16,37 @@
   ===========================
 */
 ?>
-<HTML>
-<HEAD>
-<TITLE>Administrator</TITLE>
-</HEAD>
-<BODY>
-<CENTER><H1>Administrator</H1></CENTER>
-<B>Edit a previous entry:</B>
-<FORM ACTION="newinsert.php" METHOD="GET">
+<head>
+<title>Administrator</title>
+</head>
+<body>
+<center><h1>Administrator</h1></center>
+<b>Edit a previous entry:</b>
+<form action="newinsert.php" method="get">
 Date: 
-<SELECT NAME="date">
+<select name="date">
 <?php
 for($i=1;$i<32;$i++)
-print("<OPTION VALUE=\"$i\">$i\n");
+print("<option value=\"$i\">$i\n</option>");
 ?>
-</SELECT>
+</select>
 Month:
-<SELECT NAME="month">
+<select name="month">
 <?php
 for($i=1;$i<13;$i++)
-print("<OPTION VALUE=\"$i\">$i\n");
+print("<option value=\"$i\">$i\n</option>");
 ?>
-</SELECT>
+</select>
 Year:
-<SELECT NAME="year">
+<select name="year">
 <?php
 for($i=2004;$i<2008;$i++)
-print("<OPTION VALUE=\"$i\">$i\n");
+print("<option value=\"$i\">$i\n</option>");
 ?>
-</SELECT>
-<INPUT TYPE=SUBMIT>
-</FORM>
-<BR>
+</select>
+<input type="submit" />
+</form>
+<br />
 <?php
 $date=date('d');
 $month=date('m');
@@ -54,9 +55,9 @@ $day=date('l');
 if(!$day=='Sunday')
 {	
 ?>
-<B>
-<A HREF="newinsert.php?<?php print("date=$date&month=$month&year=$year"); ?>"> Insert</A> today's attendance details.
-</B>
+<b>
+<a href="newinsert.php?<?php print("date=$date&month=$month&year=$year"); ?>"> Insert</a> today's attendance details.
+</b>
 <?php
 }
 else
@@ -64,5 +65,5 @@ else
 	print("Today is a Sunday. So nothing can be entered today!");
 }
 ?>
-</BODY>
-<HTML>
+</body>
+<html>

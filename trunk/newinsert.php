@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 /*
   ===========================
@@ -31,13 +33,13 @@ $row=mysql_fetch_row($result);
 if($day=='Sunday')
 {
 ?>
-<html>
 <head><title>Sunday</title></head>
 <body>
 <center>
 Today is a Sunday. So there is no college. Go learn for tomorrow's test. ;-)
 <br />
-<A HREF="admin.php">ADMINISTRATOR</A> <A HREF="index.php">INDEX</A>
+<a href="admin.php">ADMINISTRATOR</a> 
+<a href="index.php">INDEX</a>
 </center>
 </body>
 </html>
@@ -47,12 +49,12 @@ else if(isset($row[0]))
 {
 //Date already exists, So edit
 ?>
-<HTML>
-<HEAD>
-<TITLE>Editing attendance details for <?php print("$date-$month-$year - $day"); ?></TITLE>
-</HEAD>
-<BODY>
-<CENTER><H1>Editing attendance details for <?php print("$date-$month-$year - $day"); ?></H1>
+<html>
+<head>
+<title>Editing attendance details for <?php print("$date-$month-$year - $day"); ?></title>
+</head>
+<body>
+<center><h1>Editing attendance details for <?php print("$date-$month-$year - $day"); ?></h1>
 <?php
 
 //If Saturday
@@ -72,8 +74,8 @@ while($row=mysql_fetch_row($attendance_result))
 		$arr[$row[0]][$i]=$row[$i];
 		
 //Build input form
-print("<FORM ACTION=\"insert.php\" METHOD=\"POST\">");//need to check action attr
-print("<TABLE>\n");
+print("<form action=\"insert.php\" method=\"post\">");//need to check action attr
+print("<table>\n");
 $row_color="eecccc";
 $i=1;
 while($row=mysql_fetch_row($name_result))
@@ -84,47 +86,50 @@ while($row=mysql_fetch_row($name_result))
 	else
 		$row_color="eecccc";
 	//Print row for each student
-	print("<TR bgcolor=\"$row_color\">");
-	print("<td><INPUT TYPE=\"HIDDEN\" NAME=\"stud_id[$i]\" VALUE=\"$row[0]\">\n");
+	print("<tr bgcolor=\"$row_color\">");
+	print("<td><input type=\"hidden\" name=\"stud_id[$i]\" value=\"$row[0]\" />\n");
 	print("<b>$row[1]</b>\n</td>\n");
 	for($j=1;$j<$num_hour;$j++)
 	{
-		print("<TD>\n");
+		print("<td>\n");
 		if($arr[$i][$j]==1)
-			print("<INPUT TYPE=\"CHECKBOX\" NAME=\"arr[$i][$j]\">");
+			print("<input type=\"checkbox\" name=\"arr[$i][$j]\" />");
 		else
-			print("<INPUT TYPE=\"CHECKBOX\" CHECKED NAME=\"arr[$i][$j]\">");
-		print("</TD>\n");
+			print("<input type=\"checkbox\" checked=\"checked\" name=\"arr[$i][$j]\" />");
+		print("</td>\n");
 	}
-	print("</TR>\n");
+	print("</tr>\n");
 	$i=$i+1;
 }
 //Edit this to include edit information
 ?>
-</TABLE>
-<INPUT TYPE="HIDDEN" NAME="mode" VALUE="edit">
-<INPUT TYPE="HIDDEN" NAME="date" VALUE="<?php print($date); ?>">
-<INPUT TYPE="HIDDEN" NAME="month" VALUE="<?php print($month); ?>">
-<INPUT TYPE="HIDDEN" NAME="year" VALUE="<?php print($year); ?>">
-<FONT size=-2>Enter the password</FONT><INPUT TYPE="PASSWORD" NAME="pass"><BR>
-<INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="SUBMIT">
-</FORM>
-<A HREF="admin.php">ADMINISTRATOR</A> <A HREF="index.php">INDEX</A>
-</CENTER>
-</BODY>
-</HTML>
+</table>
+<input type="hidden" name="mode" value="edit" />
+<input type="hidden" name="date" value="<?php print($date); ?>" />
+<input type="hidden" name="month" value="<?php print($month); ?>" />
+<input type="hidden" name="year" value="<?php print($year); ?>" />
+<font size="-2">Enter the password</Font>
+<input type="PASSWORD" name="pass" />
+<br />
+<input type="submit" name="submit" value="submit" />
+</form>
+<a href="admin.php">ADMINISTRATOR</a> 
+<a href="index.php">INDEX</a>
+</center>
+</body>
+</html>
 <?php
 }//End of If block for editing
 else
 {
 //If date doesn't exist display the input form
 ?>
-<HTML>
-<HEAD>
-<TITLE>Inserting attendance details for <?php print("$date-$month-$year - $day"); ?></TITLE>
-</HEAD>
-<BODY>
-<CENTER><H1>Inserting attendance details for <?php print("$date-$month-$year - $day"); ?></H1>
+<head>
+<title>Inserting attendance details for <?php print("$date-$month-$year - $day"); ?></title>
+</head>
+<body>
+<center>
+<h1>Inserting attendance details for <?php print("$date-$month-$year - $day"); ?></h1>
 <?php
 $day=date('l',$db_date);
 //If Saturday
@@ -136,8 +141,8 @@ else
 $query="SELECT stud_id, stud_name FROM student";
 $result=mysql_query($query);
 
-print("<FORM ACTION=\"insert.php\" METHOD=\"POST\">");
-print("<TABLE>\n");
+print("<form action=\"insert.php\" method=\"post\">");
+print("<table>\n");
 $row_color="eecccc";
 $i=1;
 while($row=mysql_fetch_row($result))
@@ -148,31 +153,33 @@ while($row=mysql_fetch_row($result))
 	else
 		$row_color="eecccc";
 	//Print row for each student
-	print("<TR bgcolor=\"$row_color\">");
-	print("<td><INPUT TYPE=\"HIDDEN\" NAME=\"stud_id[$i]\" VALUE=\"$row[0]\">\n");
+	print("<tr bgcolor=\"$row_color\">");
+	print("<td><input type=\"hidden\" name=\"stud_id[$i]\" value=\"$row[0]\" />\n");
 	print("<b>$row[1]</b>\n</td>\n");
 	for($j=1;$j<$num_hour;$j++)
 	{
-		print("<TD>\n");
-		print("<INPUT TYPE=\"CHECKBOX\" NAME=\"arr[$i][$j]\">");
-		print("</TD>\n");
+		print("<td>\n");
+		print("<input type=\"checkbox\" name=\"arr[$i][$j]\" />");
+		print("</td>\n");
 	}
-	print("</TR>\n");
+	print("</tr>\n");
 	$i=$i+1;
 }
 ?>
-</TABLE>
-<INPUT TYPE="HIDDEN" NAME="mode" VALUE="insert">
-<INPUT TYPE="HIDDEN" NAME="date" VALUE="<?php print($date); ?>">
-<INPUT TYPE="HIDDEN" NAME="month" VALUE="<?php print($month); ?>">
-<INPUT TYPE="HIDDEN" NAME="year" VALUE="<?php print($year); ?>">
-<FONT size=-2>Enter the password</FONT><INPUT TYPE="PASSWORD" NAME="pass"><BR>
-<INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="SUBMIT">
-</FORM>
-<A HREF="admin.php">ADMINISTRATOR</A> <A HREF="index.php">INDEX</A>
-</CENTER>
-</BODY>
-</HTML>
+</table>
+<input type="hidden" name="mode" value="insert">
+<input type="hidden" name="date" value="<?php print($date); ?>">
+<input type="hidden" name="month" value="<?php print($month); ?>">
+<input type="hidden" name="year" value="<?php print($year); ?>">
+<font size="-2">Enter the password</font>
+<input type="password" name="pass">
+<br />
+<input type="submit" name="submit" value="Submit">
+</form>
+<a href="admin.php">ADMINISTRATOR</a> <a href="index.php">INDEX</a>
+</center>
+</body>
+</html>
 <?php
 }//End of else block for insertion
 ?>

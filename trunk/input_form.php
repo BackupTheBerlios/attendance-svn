@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 /*
   ===========================
@@ -14,16 +16,16 @@
   ===========================
 */
 ?>
-<HTML>
-<HEAD>
-<TITLE>INSERT ATTENDANCE DETAILS - <?php
+<head>
+<title>Insert Attendance Details - <?php
 $date=date('d-m-Y');
 print($date);
-?></TITLE>
-</HEAD>
-<BODY>
-<CENTER><H1>Attendance details for <?php print($date); ?></h1>
-Enter the attendance details for every student. Check the box if s/he <b>was</b> absent for that particular hour, Else leave it unchecked.<BR>
+?>
+</title>
+</head>
+<body>
+<center><h1>Attendance details for <?php print($date); ?></h1>
+Enter the attendance details for every student. Check the box if s/he <b>was</b> absent for that particular hour, Else leave it unchecked.<br />
 <?php 
 $form_date=date('m,d,Y');
 $day=date('l',time());
@@ -41,8 +43,8 @@ else
 $query="SELECT stud_id, stud_name FROM student";
 $result=mysql_query($query);
 
-print("<FORM ACTION=\"insert.php\" METHOD=\"POST\">");
-print("<TABLE>\n");
+print("<form action=\"insert.php\" method=\"post\">");
+print("<table>\n");
 $row_color="eecccc";
 $i=1;
 while($row=mysql_fetch_row($result))
@@ -53,24 +55,26 @@ while($row=mysql_fetch_row($result))
 	else
 		$row_color="eecccc";
 	//Print row for each student
-	print("<TR bgcolor=\"$row_color\">");
-	print("<td><INPUT TYPE=\"HIDDEN\" NAME=\"stud_id[$i]\" VALUE=\"$row[0]\">\n");
+	print("<tr bgcolor=\"$row_color\">");
+	print("<td><input type=\"hidden\" name=\"stud_id[$i]\" value=\"$row[0]\" />\n");
 	print("<b>$row[1]</b>\n</td>\n");
 	for($j=1;$j<$num_hour;$j++)
 	{
-		print("<TD>\n");
-		print("<INPUT TYPE=\"CHECKBOX\" NAME=\"arr[$i][$j]\">");
-		print("</TD>\n");
+		print("<td>\n");
+		print("<input type=\"checkbox\" name=\"arr[$i][$j]\" />");
+		print("</td>\n");
 	}
-	print("</TR>\n");
+	print("</tr>\n");
 	$i=$i+1;
 }
 ?>
-</TABLE>
-<INPUT TYPE="HIDDEN" NAME="form_date" VALUE="<?php print($form_date); ?>">
-<font size=2>Enter the password(to prevent unauthorised entry into the database</font><INPUT TYPE="PASSWORD" NAME="password"><BR>
-<INPUT TYPE="SUBMIT" NAME="SUBMIT">
-</FORM>
-</CENTER>
-</BODY>
+</table>
+<input type="hidden" name="form_date" value="<?php print($form_date); ?>" />
+<font size="2">Enter the password(to prevent unauthorised entry into the database</font>
+<input type="password" name="password" />
+<br />
+<input type="submit" name="submit" />
+</form>
+</center>
+</body>
 </html>
