@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="5" >
+  <Doc0 NumberOfViews="1" URL="file:/home/cnu/public_html/attendance/index.php" >
+   <View0 line="27" Type="???" >
+    <AdditionalSettings Top="2" Width="953" Attach="1" Height="533" Left="2" MinMaxMode="0" />
+   </View0>
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:/home/cnu/public_html/attendance/test.php" >
+   <View0 line="25" Type="???" >
+    <AdditionalSettings Top="2" Width="953" Attach="1" Height="525" Left="2" MinMaxMode="0" />
+   </View0>
+  </Doc1>
+  <Doc2 NumberOfViews="1" URL="file:/home/cnu/public_html/attendance/newinsert.php" >
+   <View0 line="26" Type="???" >
+    <AdditionalSettings Top="2" Width="955" Attach="1" Height="525" Left="2" MinMaxMode="0" />
+   </View0>
+  </Doc2>
+  <Doc3 NumberOfViews="1" URL="file:/home/cnu/public_html/attendance/insert.php" >
+   <View0 line="31" Type="???" >
+    <AdditionalSettings Top="2" Width="955" Attach="1" Height="525" Left="2" MinMaxMode="0" />
+   </View0>
+  </Doc3>
+  <Doc4 NumberOfViews="1" URL="file:/home/cnu/public_html/attendance/atten.php" >
+   <View0 line="83" Type="???" >
+    <AdditionalSettings Top="2" Width="955" Attach="1" Height="525" Left="2" MinMaxMode="0" />
+   </View0>
+  </Doc4>
+ </DocsAndViews>
+ <pluginList>
+  <kdevbookmarks>
+   <bookmarks/>
+  </kdevbookmarks>
+  <kdevsubversion>
+   <subversion recurseresolve="1" recurserelocate="1" recursemerge="1" recursecommit="1" base="" recursepropget="1" recurseswitch="1" recurseupdate="1" recursepropset="1" recursediff="1" recurserevert="1" forcemove="1" recursecheckout="1" forceremove="1" recurseadd="1" recurseproplist="1" forcemerge="1" />
+  </kdevsubversion>
+  <kdevvalgrind>
+   <executable path="" params="" />
+   <valgrind path="" params="" />
+  </kdevvalgrind>
+ </pluginList>
+</KDevPrjSession>
