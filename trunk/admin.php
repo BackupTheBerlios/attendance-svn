@@ -50,7 +50,19 @@ print("<OPTION VALUE=\"$i\">$i\n");
 $date=date('d');
 $month=date('m');
 $year=date('Y');
+$day=date('l');
+if(!$day=='Sunday')
+{	
 ?>
-<B><A HREF="newinsert.php?<?php print("date=$date&month=$month&year=$year"); ?>"> Insert</A> today's attendance details.</B>
+<B>
+<A HREF="newinsert.php?<?php print("date=$date&month=$month&year=$year"); ?>"> Insert</A> today's attendance details.
+</B>
+<?php
+}
+else
+{
+	print("Today is a Sunday. So nothing can be entered today!");
+}
+?>
 </BODY>
 <HTML>

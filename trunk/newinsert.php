@@ -22,22 +22,39 @@ mysql_select_db($database);
 //Check whether an entry for this date already exists
 $db_date=mktime(0,0,0,$month,$date,$year);
 $form_date="$month,$date,$year";
+$day=date('l',$db_date);
+
 $query="SELECT DISTINCT date FROM attendance WHERE date=$db_date";
 $result=mysql_query($query);
 $row=mysql_fetch_row($result);
 
-if(isset($row[0]))
+if($day=='Sunday')
+{
+?>
+<html>
+<head><title>Sunday</title></head>
+<body>
+<center>
+Today is a Sunday. So there is no college. Go learn for tomorrow's test. ;-)
+<br />
+<A HREF="admin.php">ADMINISTRATOR</A> <A HREF="index.php">INDEX</A>
+</center>
+</body>
+</html>
+<?php
+}
+else if(isset($row[0]))
 {
 //Date already exists, So edit
 ?>
 <HTML>
 <HEAD>
-<TITLE>Editing attendance details for <?php print("$date-$month-$year"); ?></TITLE>
+<TITLE>Editing attendance details for <?php print("$date-$month-$year - $day"); ?></TITLE>
 </HEAD>
 <BODY>
-<CENTER><H1>Editing attendance details for <?php print("$date-$month-$year"); ?></H1>
+<CENTER><H1>Editing attendance details for <?php print("$date-$month-$year - $day"); ?></H1>
 <?php
-$day=date('l',$db_date);
+
 //If Saturday
 if($day=="Saturday")
 	$num_hour=5;
@@ -86,6 +103,16 @@ while($row=mysql_fetch_row($name_result))
 ?>
 </TABLE>
 <INPUT TYPE="HIDDEN" NAME="mode" VALUE="edit">
+<INPUT TYPE="HIDDEN" NAME="date" VALUE="<?php print($date); ?>">
+<INPUT TYPE="HIDDEN" NAME="month" VALUE="<?php print($month); ?>">
+<INPUT TYPE="HIDDEN" NAME="year" VALUE="<?php print($year); ?>">
+<FONT size=-2>Enter the password</FONT><INPUT TYPE="PASSWORD" NAME="pass"><BR>
+<INPUT TYPE="SUBMIT" NAME="SUBMIT" VALUE="SUBMIT">
+</FORM>
+<A HREF="admin.php">ADMINISTRATOR</A> <A HREF="index.php">INDEX</A>
+</CENTER>
+</BODY>
+</HTML>
 <?php
 }//End of If block for editing
 else
@@ -94,10 +121,10 @@ else
 ?>
 <HTML>
 <HEAD>
-<TITLE>Inserting attendance details for <?php print("$date-$month-$year"); ?></TITLE>
+<TITLE>Inserting attendance details for <?php print("$date-$month-$year - $day"); ?></TITLE>
 </HEAD>
 <BODY>
-<CENTER><H1>Inserting attendance details for <?php print("$date-$month-$year"); ?></H1>
+<CENTER><H1>Inserting attendance details for <?php print("$date-$month-$year - $day"); ?></H1>
 <?php
 $day=date('l',$db_date);
 //If Saturday
@@ -136,11 +163,6 @@ while($row=mysql_fetch_row($result))
 ?>
 </TABLE>
 <INPUT TYPE="HIDDEN" NAME="mode" VALUE="insert">
-<?php
-}//End of else block for insertion
-?>
-
-<!--common to both edit and insert-->
 <INPUT TYPE="HIDDEN" NAME="date" VALUE="<?php print($date); ?>">
 <INPUT TYPE="HIDDEN" NAME="month" VALUE="<?php print($month); ?>">
 <INPUT TYPE="HIDDEN" NAME="year" VALUE="<?php print($year); ?>">
@@ -151,3 +173,6 @@ while($row=mysql_fetch_row($result))
 </CENTER>
 </BODY>
 </HTML>
+<?php
+}//End of else block for insertion
+?>
